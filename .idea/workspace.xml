@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="996c9973-2f60-42e1-b696-5971a9c76324" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/config/environments/production.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/environments/production.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/unicorn.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/unicorn.rb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -73,8 +72,8 @@
       <file leaf-file-name="production.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="53" column="26" lean-forward="true" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
+            <state relative-caret-position="311">
+              <caret line="52" column="24" lean-forward="true" selection-start-line="52" selection-start-column="24" selection-end-line="52" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -111,15 +110,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="capistrano.log" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/log/capistrano.log">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="818">
-              <caret line="1241" column="53" selection-start-line="1241" selection-start-column="53" selection-end-line="1241" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
@@ -133,6 +123,7 @@
       <find>rails_gems_tool</find>
       <find>app_folder</find>
       <find>tail</find>
+      <find>warn</find>
       <find>log_level</find>
     </findStrings>
   </component>
@@ -352,7 +343,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18947000" />
+    <option name="totallyTimeSpent" value="19111000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="-106" width="1920" height="1080" extended-state="0" />
@@ -364,8 +355,8 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3292683" />
       <window_info anchor="bottom" id="Version Control" order="12" />
-      <window_info anchor="bottom" x="-1356" y="59" width="1188" height="673" id="Terminal" order="10" type="FLOATING" weight="0.3292683" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16541755" />
+      <window_info anchor="bottom" x="-1300" y="140" width="1188" height="673" id="Terminal" order="10" type="FLOATING" weight="0.3292683" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16541755" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.2248394" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3292683" />
@@ -402,13 +393,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://974dca6a-6f3c-4aad-9238-7c57703fef32/schema/rails_gems_tool_dev/table/ar_internal_metadata">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://974dca6a-6f3c-4aad-9238-7c57703fef32/schema/rails_gems_tool_dev/table/users.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
@@ -725,10 +709,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="53" column="26" lean-forward="true" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
+        <state relative-caret-position="311">
+          <caret line="52" column="24" lean-forward="true" selection-start-line="52" selection-start-column="24" selection-end-line="52" selection-end-column="24" />
         </state>
       </provider>
     </entry>
