@@ -23,7 +23,7 @@ append :linked_files, 'config/database.yml', 'config/config.yml', 'config/master
 #输入要发布的分支
 # ask(:use_branch, 'master', echo: true)
 # @branch = fetch(:use_branch)
-@branch = 'master'
+@branch = 'new_version'
 
 #进行参数设置
 set :deploy_to, @complete_app_dir  #部署的服务器的路径。默认是 { "/var/www/#{fetch(:application)}" }
