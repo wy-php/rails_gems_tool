@@ -72,10 +72,12 @@ set :unicorn_config_path, -> { File.join(current_path, "config", "unicorn.rb") }
 set :unicorn_roles, [:db, :app, :web]
 
 #执行deploy中进行的操作
-#使用unicorn去运行该命令，如果是首次运行或者服务器端的unicorn进程挂掉的情况的话使用unicorn:start，其他的情况使用unicorn:restart
-after 'deploy:publishing', 'unicorn:start'
 # 在第一次部署的时候运行该命令,用来创建数据库。
-before "deploy:updated", "deploy:create_database"
+# before "deploy:updated", "deploy:create_database"
+#使用unicorn去运行该命令，如果是首次运行或者服务器端的unicorn进程挂掉的情况的话使用unicorn:start，其他的情况使用unicorn:restart
+after 'deploy:publishing', 'unicorn:restart'
+before 'deploy:updated', 'deploy:migrate'
+
 
 
 namespace :deploy do
@@ -88,7 +90,7 @@ namespace :deploy do
         with rails_env: fetch(:rails_env) do
           # execute :rake, 'db:create' #如果是第一次部署可以加上该行代码以便创建数据库。
           # 根据设置的：rails_evn的变量配置对应的RAILS_ENV环境，然后进行rake下的migrate操作
-          execute :rake, 'db:create'
+          execute :rake, 'db:migrate'
         end
       end
     end
