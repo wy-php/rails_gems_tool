@@ -70,6 +70,7 @@ set :assets_roles, [:web, :app]
 # set :unicorn_config_path, -> { File.join(current_path, "config", "unicorn.rb") }
 
 #执行deploy中进行的操作
+after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   # 自定义了一个部署任务, 即自动运行 rake RAILS_ENV=rails_env db:create
   # 其中 release_path 指的是当前 release 目录
@@ -87,19 +88,24 @@ namespace :deploy do
   end
 
   # 在每次 updated 前都运行 rake db:migrate
-  before :updated, :curd_tables
+  # before :updated, :curd_tables
 
   # unicorn的配置服务
+end
+
+namespace :unicorn do
+  desc 'Start unicorn'
   task :start do
-    run "cd #{current_path} ; bundle exec unicorn_rails -c config/unicorn.conf.rb -D"
+    runner "cd #{current_path} ; bundle exec unicorn_rails -c config/unicorn.conf.rb -D"
   end
 
+  desc 'Stop unicorn'
   task :stop do
-    run "kill -s QUIT `cat #{shared_path}/tmp/pids/unicorn.pid`"
+    runner "kill -s QUIT `cat #{shared_path}/tmp/pids/unicorn.pid`"
   end
 
+  desc 'Restart unicorn'
   task :restart, roles: :app, except: { no_release: true } do
-    run "kill -s USR2 `cat #{shared_path}/tmp/pids/unicorn.pid`"
+    runner "kill -s USR2 `cat #{shared_path}/tmp/pids/unicorn.pid`"
   end
-
 end
