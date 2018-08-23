@@ -70,9 +70,10 @@ set :assets_roles, [:web, :app]
 set :unicorn_config_path, "#{current_path}/config/unicorn.rb"
 
 #执行deploy中进行的操作
-# after 'deploy:publishing', 'deploy:restart'
-# namespace :deploy do
-#   task :restart do
-#     invoke 'deploy:migrate'
-#   end
-# end
+after 'deploy:publishing', 'deploy:restart'
+
+namespace :deploy do
+  task :restart do
+    invoke 'unicorn:legacy_restart'
+  end
+end
