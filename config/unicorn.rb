@@ -10,9 +10,9 @@
 
 # Use at least one worker per core if you're on a dedicated server,
 # more will usually help for _short_ waits on databases/caches.
-app_path = File.expand_path("../..", __FILE__)
-app_name = 'rails_gems_tool'
-app_folder = "#{app_path}/#{app_name}"
+app_folder = File.expand_path("../..", __FILE__)
+# app_name = 'rails_gems_tool'
+# app_folder = "#{app_path}/#{app_name}"
 log_folder = "#{app_folder}/shared/log"
 pids_folder = "#{app_folder}/shared/tmp/pids"
 
