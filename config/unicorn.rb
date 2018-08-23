@@ -16,7 +16,6 @@ app_folder = File.expand_path("../..", __FILE__)
 log_folder = "#{app_folder}/log"
 pids_folder = "#{app_folder}/tmp/pids"
 
-p "app_folder: #{app_folder}"
 #工作进程设置。如果环境中没有设置就设置4个
 worker_processes Integer(ENV['UNICORN_WORKERS'] || 4)
 
