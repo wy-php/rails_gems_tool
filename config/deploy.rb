@@ -68,7 +68,8 @@ set :assets_roles, [:web, :app]
 
 #配置unicorn的运行的目录
 set :unicorn_config_path, -> { File.join(current_path, "config", "unicorn.rb") }
-set :unicorn_pid, "#{shared_path}/tmp/pids/unicorn.pid"
+# set :unicorn_pid, "#{shared_path}/tmp/pids/unicorn.pid"
+set :unicorn_roles, [:db, :app, :web]
 
 #执行deploy中进行的操作
 after 'deploy:publishing', 'unicorn:start'
@@ -89,5 +90,5 @@ namespace :deploy do
   end
 
   # 在每次 updated 前都运行 rake db:migrate
-  # before :updated, :curd_tables
+  before :updated, :curd_tables
 end
