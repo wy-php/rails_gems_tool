@@ -72,12 +72,17 @@ set :unicorn_config_path, -> { File.join(current_path, "config", "unicorn.rb") }
 set :unicorn_roles, [:db, :app, :web]
 
 #执行deploy中进行的操作
+#使用unicorn去运行该命令，如果是首次运行或者服务器端的unicorn进程挂掉的情况的话使用unicorn:start，其他的情况使用unicorn:restart
 after 'deploy:publishing', 'unicorn:start'
+# 在第一次部署的时候运行该命令,用来创建数据库。
+before "deploy:updated", "deploy:create_database"
+
+
 namespace :deploy do
   # 自定义了一个部署任务, 即自动运行 rake RAILS_ENV=rails_env db:create
   # 其中 release_path 指的是当前 release 目录
   # `fetch(:rails_env)` 读取配置中的 rails_env 变量, 并在 rake 命令中带上 env 变量
-  task :curd_tables do
+  task :create_database do
     on roles(:db) do
       within release_path do
         with rails_env: fetch(:rails_env) do
@@ -88,7 +93,4 @@ namespace :deploy do
       end
     end
   end
-
-  # 在每次 updated 前都运行 rake db:migrate
-  before :updated, :curd_tables
 end
