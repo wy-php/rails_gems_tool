@@ -71,9 +71,33 @@ set :unicorn_config_path, "#{current_path}/config/unicorn.rb"
 
 #执行deploy中进行的操作
 after 'deploy:publishing', 'deploy:restart'
-
 namespace :deploy do
-  task :restart do
-    invoke 'unicorn:legacy_restart'
+  # 自定义了一个部署任务, 即自动运行 rake RAILS_ENV=rails_env db:create
+  # 其中 release_path 指的是当前 release 目录
+  # `fetch(:rails_env)` 读取配置中的 rails_env 变量, 并在 rake 命令中带上 env 变量
+  task :curd_tables do
+    on roles(:db) do
+      within release_path do
+        with rails_env: fetch(:rails_env) do
+          # execute :rake, 'db:create' #如果是第一次部署可以加上该行代码以便创建数据库。
+          # 根据设置的：rails_evn的变量配置对应的RAILS_ENV环境，然后进行rake下的migrate操作
+          execute :rake, 'db:migrate'
+        end
+      end
+    end
   end
+
+  # 删除whenever中设置的所有的定时任务
+  # task :del_whenever do
+  #   invoke(whenever:update_crontab)
+  # end
+
+  # 重启项目
+  task :restart do
+    invoke 'unicorn:restart'
+  end
+
+  # 在每次 updated 前都运行 rake db:migrate
+  before :updated, :curd_tables
+  # after :updated, :del_whenever
 end
