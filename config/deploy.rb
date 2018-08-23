@@ -67,7 +67,7 @@ set :assets_roles, [:web, :app]
 # set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 
 #配置unicorn的运行的目录
-set :unicorn_config_path, "#{current_path}/config/unicorn.rb"
+set :unicorn_config_path, -> { File.join(current_path, "config", "unicorn.rb") }
 
 #执行deploy中进行的操作
 after 'deploy:publishing', 'deploy:restart'

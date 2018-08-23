@@ -27,7 +27,7 @@ working_directory app_folder
 preload_app true
 
 #unicorn监听的端口号，这里使用一个backlog以便在繁忙时进行更快的进行故障转移。
-listen "tmp/to/.unicorn.sock", :backlog => 64
+listen "#{app_folder}/shared/tmp/sockets/unicorn.sock", :backlog => 64
 listen 3009, :tcp_nopush => true
 
 #超时时间
