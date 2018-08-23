@@ -68,7 +68,7 @@ set :assets_roles, [:web, :app]
 
 #配置unicorn的运行的目录
 set :unicorn_config_path, -> { File.join(current_path, "config", "unicorn.rb") }
-# set :unicorn_pid, "#{shared_path}/tmp/pids/unicorn.pid"
+set :unicorn_pid, "#{shared_path}/tmp/pids/unicorn.pid"
 # 必须要设置该参数，否则无法执行。
 set :unicorn_roles, [:db, :app, :web]
 

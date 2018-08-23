@@ -34,7 +34,7 @@ listen 3009, :tcp_nopush => true
 timeout 60
 
 #pid的保存文件路径
-pid "#{pids_folder}/unicorn.pid"
+# pid "#{pids_folder}/unicorn.pid"
 
 #错误输出目录
 stderr_path "#{log_folder}/unicorn_err.log"
