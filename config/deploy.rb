@@ -67,10 +67,9 @@ set :assets_roles, [:web, :app]
 # set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 
 #配置unicorn的运行的目录
-set :unicorn_config_path, -> { File.join(current_path, "config", "unicorn.rb") }
+# set :unicorn_config_path, -> { File.join(current_path, "config", "unicorn.rb") }
 
 #执行deploy中进行的操作
-after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   # 自定义了一个部署任务, 即自动运行 rake RAILS_ENV=rails_env db:create
   # 其中 release_path 指的是当前 release 目录
@@ -81,23 +80,26 @@ namespace :deploy do
         with rails_env: fetch(:rails_env) do
           # execute :rake, 'db:create' #如果是第一次部署可以加上该行代码以便创建数据库。
           # 根据设置的：rails_evn的变量配置对应的RAILS_ENV环境，然后进行rake下的migrate操作
-          execute :rake, 'db:migrate'
+          execute :rake, 'db:create'
         end
       end
     end
   end
 
-  # 删除whenever中设置的所有的定时任务
-  # task :del_whenever do
-  #   invoke(whenever:update_crontab)
-  # end
-
-  # 重启项目
-  task :restart do
-    invoke 'unicorn:restart'
-  end
-
   # 在每次 updated 前都运行 rake db:migrate
   before :updated, :curd_tables
-  # after :updated, :del_whenever
+
+  # unicorn的配置服务
+  task :start do
+    run "cd #{current_path} ; bundle exec unicorn_rails -c config/unicorn.conf.rb -D"
+  end
+
+  task :stop do
+    run "kill -s QUIT `cat #{shared_path}/tmp/pids/unicorn.pid`"
+  end
+
+  task :restart, roles: :app, except: { no_release: true } do
+    run "kill -s USR2 `cat #{shared_path}/tmp/pids/unicorn.pid`"
+  end
+
 end
