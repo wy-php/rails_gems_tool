@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="996c9973-2f60-42e1-b696-5971a9c76324" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/unicorn.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/unicorn.rb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
@@ -55,8 +54,8 @@
       <file leaf-file-name="unicorn.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/unicorn.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="847">
-              <caret line="48" column="49" lean-forward="true" selection-start-line="48" selection-start-column="49" selection-end-line="48" selection-end-column="49" />
+            <state relative-caret-position="527">
+              <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -73,8 +72,8 @@
       <file leaf-file-name="deploy.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/deploy.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="63" column="31" lean-forward="true" selection-start-line="63" selection-start-column="31" selection-end-line="63" selection-end-column="31" />
+            <state relative-caret-position="478">
+              <caret line="75" column="20" lean-forward="true" selection-start-line="75" selection-start-column="20" selection-end-line="75" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -82,8 +81,8 @@
       <file leaf-file-name="capistrano.log" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/log/capistrano.log">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="562">
-              <caret line="650" column="116" selection-start-line="650" selection-start-column="49" selection-end-line="650" selection-end-column="116" />
+            <state relative-caret-position="818">
+              <caret line="1241" column="53" lean-forward="true" selection-start-line="1241" selection-start-column="53" selection-end-line="1241" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -327,7 +326,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14947000" />
+    <option name="totallyTimeSpent" value="16009000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="-106" width="1920" height="1080" extended-state="0" />
@@ -339,7 +338,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3292683" />
       <window_info anchor="bottom" id="Version Control" order="12" />
-      <window_info anchor="bottom" x="-1533" y="270" width="1188" height="673" id="Terminal" order="10" type="FLOATING" weight="0.3292683" />
+      <window_info anchor="bottom" x="-1487" y="90" width="1188" height="673" id="Terminal" order="10" type="FLOATING" weight="0.3292683" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16541755" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.2248394" />
@@ -674,13 +673,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/deploy/production.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="803">
-          <caret line="65" column="54" selection-start-line="65" selection-start-column="54" selection-end-line="65" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.3.0/gems/capistrano3-unicorn-0.2.1/lib/capistrano3/tasks/unicorn.rake">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -688,24 +680,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/log/capistrano.log">
+    <entry file="file://$PROJECT_DIR$/config/deploy.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="562">
-          <caret line="650" column="116" selection-start-line="650" selection-start-column="49" selection-end-line="650" selection-end-column="116" />
+        <state relative-caret-position="478">
+          <caret line="75" column="20" lean-forward="true" selection-start-line="75" selection-start-column="20" selection-end-line="75" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/deploy.rb">
+    <entry file="file://$PROJECT_DIR$/log/capistrano.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="63" column="31" lean-forward="true" selection-start-line="63" selection-start-column="31" selection-end-line="63" selection-end-column="31" />
+        <state relative-caret-position="818">
+          <caret line="1241" column="53" lean-forward="true" selection-start-line="1241" selection-start-column="53" selection-end-line="1241" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/deploy/production.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="803">
+          <caret line="65" column="54" selection-start-line="65" selection-start-column="54" selection-end-line="65" selection-end-column="54" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/unicorn.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="847">
-          <caret line="48" column="49" lean-forward="true" selection-start-line="48" selection-start-column="49" selection-end-line="48" selection-end-column="49" />
+        <state relative-caret-position="527">
+          <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
         </state>
       </provider>
     </entry>
