@@ -6,18 +6,18 @@ base: &base
   timeout: 1000
   pool: 30
   username: root
-  password:
-  database: rails_gems_tool
 
 development:
   <<: *base
   database: rails_gems_tool_dev
+  password: 123456
 
 production:
   <<: *base
-  username: root
-  password:
+  database: rails_gems_tool
+  password: 123456
 
 test:
   <<: *base
   database: rails_gems_tool_test
+  password: 123456
