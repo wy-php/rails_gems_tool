@@ -60,7 +60,16 @@ Rails.application.configure do
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
-
+  # 配置缓存的存储位置为redis,redis服务器总共可以设置16个数据库，如果没有设置默认是0
+  config.cache_store = :redis_store, {
+      host: "127.0.0.1",
+      port: 6378,
+      db: 0,
+      password: "rails_gems_tool",
+      namespace: "cache"
+  }, {
+      expires_in: 90.minutes
+  }
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "rails_gems_tool_#{Rails.env}"

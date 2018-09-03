@@ -37,6 +37,13 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'unicorn'
 gem 'whenever', require: false
+gem 'sidekiq'
+
+#redis相关的。 hiredis是一个高性能的redis，redis-rails和redis-rack-cache是提供了完整的一套如(cache,session,http cache)等存储功能的包
+gem 'redis', '~> 4.0.2'
+gem 'hiredis', '~> 0.6.1'
+gem 'redis-rails'
+gem 'redis-rack-cache'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -57,6 +64,7 @@ group :development do
   gem "capistrano-rails", "~> 1.4", require: false
   gem 'capistrano-bundler', '~> 1.3', require: false
   gem 'capistrano3-unicorn'
+  gem 'capistrano-sidekiq'
 end
 
 group :test do

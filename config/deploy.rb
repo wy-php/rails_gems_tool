@@ -6,7 +6,7 @@ lock "~> 3.11.0"
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
 #在部署期间，列出的文件将从应用程序的共享文件夹中链接到每个发布目录。可用于持久性配置文件，如database.yml等文件ls。
 #注意这里rails是5.2版本的，从这个版本开始，config/secrets.yml变成了config/master.key，即低于5.2版本的话要引入的是secrets.yml,否则会报错。注意这些手动添加的配置中需要有对应的内容，否则也会报错
-append :linked_files, 'config/database.yml', 'config/config.yml', 'config/master.key'
+append :linked_files, 'config/database.yml', 'config/config.yml', 'config/redis.yml', 'config/master.key'
 
 #服务器上的ruby版本以及gemset名
 @rvm_version = '2.5.1@rails_gems_tool'
