@@ -64,7 +64,7 @@ set :normalize_asset_timestamps, %w{public/images public/javascripts public/styl
 set :assets_roles, [:web, :app]
 
 #capistrano3版本及以上引入whenever的时候带上该命令是可以执行whenever -i的，即更新crontab的配置。
-# set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 
 #配置unicorn的运行的目录
 set :unicorn_config_path, -> { File.join(current_path, "config", "unicorn.rb") }

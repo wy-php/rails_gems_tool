@@ -1,4 +1,4 @@
-source 'https://gems.ruby-china.org'
+source 'https://gems.ruby-china.com'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
@@ -56,6 +56,7 @@ group :development do
   gem "capistrano-rails", "~> 1.4", require: false
   gem 'capistrano-bundler', '~> 1.3', require: false
   gem 'capistrano3-unicorn'
+  gem 'whenever', require: false
 end
 
 group :test do
