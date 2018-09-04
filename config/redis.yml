@@ -12,10 +12,10 @@ production:
   port: 6378
 
 mqtt:
-  url:  redis://127.0.0.1:6377/0
+  url:  redis://rails_gems_tool@127.0.0.1:6377/0
 
 sidekiq:
-  url:  redis://127.0.0.1:6377/1
+  url:  redis://rails_gems_tool@127.0.0.1:6377/1
   timeout: 2
   size: 25
   namespace: highlander_sidekiq
