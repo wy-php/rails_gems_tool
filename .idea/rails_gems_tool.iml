@@ -101,6 +101,7 @@
     <orderEntry type="library" scope="PROVIDED" name="redis (v4.0.2, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="redis-actionpack (v5.0.2, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="redis-activesupport (v5.0.7, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="redis-namespace (v1.6.0, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="redis-rack (v2.0.4, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="redis-rack-cache (v2.0.2, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="redis-rails (v5.0.2, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />

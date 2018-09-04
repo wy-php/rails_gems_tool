@@ -1,2 +1,2 @@
-REDIS_SERVERS = YAML.load_file('config/redis.yml')
-$redis = Redis.new(REDIS_SERVERS[Rails.env])
+REDIS_CONFIG = YAML.load_file('config/redis.yml')
+$redis = Redis.new(REDIS_CONFIG[Rails.env])

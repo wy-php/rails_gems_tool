@@ -39,11 +39,13 @@ gem 'unicorn'
 gem 'whenever', require: false
 gem 'sidekiq'
 
-#redis相关的。 hiredis是一个高性能的redis，redis-rails和redis-rack-cache是提供了完整的一套如(cache,session,http cache)等存储功能的包
+#redis相关的。 hiredis是一个高性能的redis，redis-rails和redis-rack-cache是提供了完整的一套如(cache,session,http cache)等存储功能的包。
+# redis-namespace这个是可以让redis在配置文件中设置命名空间的gem包
 gem 'redis', '~> 4.0.2'
 gem 'hiredis', '~> 0.6.1'
 gem 'redis-rails'
 gem 'redis-rack-cache'
+gem 'redis-namespace'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
