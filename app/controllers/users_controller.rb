@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    HardWorker.perform_async("hello", "wangyun")
     @users = User.all
   end
 
