@@ -71,13 +71,16 @@ set :unicorn_config_path, -> { File.join(current_path, "config", "unicorn.rb") }
 # 必须要设置该参数，否则无法执行。
 set :unicorn_roles, [:db, :app, :web]
 
+#配置sidekiq
+set :sidekiq_config, "#{current_path}/config/sidekiq.yml"
+
 #执行deploy中进行的操作
 # 在第一次部署的时候运行该命令,用来创建数据库。
 before "deploy:updated", "deploy:curd_database"
 #使用unicorn去运行该命令，如果是首次运行或者服务器端的unicorn进程挂掉的情况的话使用unicorn:start，其他的情况使用unicorn:restart
 after 'deploy:publishing', 'unicorn:restart'
-
-
+#只要是修改了sidekiq的异步任务都是需要重启sidekiq的。这里需要执行这个命令
+after 'deploy:publishing', 'sidekiq:restart'
 
 namespace :deploy do
   # 自定义了一个部署任务, 即自动运行 rake RAILS_ENV=rails_env db:create
