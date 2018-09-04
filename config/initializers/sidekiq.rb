@@ -4,6 +4,8 @@ elsif Rails.env.development?
   @redis_sidekiq = REDIS_CONFIG["local_sidekiq"]
 end
 
+p @redis_sidekiq
+
 Sidekiq.configure_server do |config|
   config.redis = @redis_sidekiq
   #从sidekiq的5.1版本之后，新增的失败处理配置。
