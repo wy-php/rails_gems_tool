@@ -17,6 +17,7 @@ mqtt:
 sidekiq:
   url:  redis://127.0.0.1:6377/1
   timeout: 2
+  size: 25
   namespace: highlander_sidekiq
 
 local_sidekiq:

@@ -73,6 +73,8 @@ set :unicorn_roles, [:db, :app, :web]
 
 #配置sidekiq
 set :sidekiq_config, "#{current_path}/config/sidekiq.yml"
+#这个参数必须要设置，否则无法执行。
+set :sidekiq_roles,[:db, :app, :web]
 
 #执行deploy中进行的操作
 # 在第一次部署的时候运行该命令,用来创建数据库。
