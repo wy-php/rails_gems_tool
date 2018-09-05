@@ -63,8 +63,13 @@ set :normalize_asset_timestamps, %w{public/images public/javascripts public/styl
 #设置编译的静态资源角色
 set :assets_roles, [:web, :app]
 
+# bundle相关
+set :bundle_gemfile, -> { current_path.join('Gemfile') }
+
 #capistrano3版本及以上引入whenever的时候带上该命令是可以执行whenever -i的，即更新crontab的配置。
 set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
+set :default_env, {BUNDLE_GEMFILE: "#{current_path}/Gemfile"}
+set :whenever_load_file, ->{ File.join(current_path, "config", "schedule.rb") }
 
 #配置unicorn的运行的目录
 set :unicorn_config_path, -> { File.join(current_path, "config", "unicorn.rb") }
