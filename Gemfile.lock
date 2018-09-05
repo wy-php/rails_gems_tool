@@ -101,6 +101,8 @@ GEM
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
     chronic (0.10.2)
+    code_analyzer (0.4.8)
+      sexp_processor
     codeclimate-engine-rb (0.4.1)
       virtus (~> 1.0)
     coderay (1.1.2)
@@ -164,6 +166,8 @@ GEM
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    json (2.1.0)
+    json (2.1.0-java)
     kgio (2.11.2)
     launchy (2.4.3)
       addressable (~> 2.3)
@@ -201,6 +205,7 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (5.0.2)
+    newrelic_rpm (5.3.0.346)
     nio4r (2.3.1)
     nio4r (2.3.1-java)
     nokogiri (1.8.4)
@@ -258,6 +263,14 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.4)
       loofah (~> 2.2, >= 2.2.2)
+    rails_best_practices (1.19.3)
+      activesupport
+      code_analyzer (>= 0.4.8)
+      erubis
+      i18n
+      json
+      require_all (~> 2.0)
+      ruby-progressbar
     railties (5.2.1)
       actionpack (= 5.2.1)
       activesupport (= 5.2.1)
@@ -296,6 +309,7 @@ GEM
       codeclimate-engine-rb (~> 0.4.0)
       parser (>= 2.5.0.0, < 2.6)
       rainbow (>= 2.0, < 4.0)
+    require_all (2.0.0)
     rspec (3.8.0)
       rspec-core (~> 3.8.0)
       rspec-expectations (~> 3.8.0)
@@ -446,12 +460,14 @@ DEPENDENCIES
   letter_opener
   listen (>= 3.0.5, < 3.2)
   mysql2
+  newrelic_rpm
   pry
   pry-byebug
   pry-rails
   pry-remote
   puma (~> 3.11)
   rails (~> 5.2.0)
+  rails_best_practices
   redis (~> 4.0.2)
   redis-namespace
   redis-rack-cache
