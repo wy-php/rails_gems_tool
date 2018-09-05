@@ -50,12 +50,30 @@ gem 'redis-namespace'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
+  #单元测试
+  gem "rspec-rails"
+  gem "rspec"
+  gem "rspec-support"
+  gem "rspec-mocks"
+  gem "rspec-core"
+  gem "rspec-expectations"
+
+  #数据库清洗工具
+  gem "database_cleaner"
+
+  #开发环境中发邮件的时候不用发到真实的邮箱中了
+  gem "letter_opener"
+
+  #一个文档生成工具
+  gem "yard", ">= 0.9.11"
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
@@ -67,12 +85,36 @@ group :development do
   gem 'capistrano-bundler', '~> 1.3', require: false
   gem 'capistrano3-unicorn'
   gem 'capistrano-sidekiq'
+
+  #用于调试代码的一些工具
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-remote'
+
+  # 友好且详尽的错误显示页面
+  gem "better_errors"
+  gem "binding_of_caller"
+
+  # 格式化打印
+  gem 'awesome_print'
+
+  #性能分析工具
+  gem "rubycritic", :require => false
+
+  #代码风格指南工具
+  gem "rubocop", ">= 0.49.0", require: false
+
+  # 检测你的gem使用情况
+  gem "derailed"
+  gem 'derailed_benchmarks'
 end
 
 group :test do
-  # Adds support for Capybara system testing and selenium driver
+  # 模拟真实用户的行为的一个插件
   gem 'capybara', '>= 2.15', '< 4.0'
   gem 'selenium-webdriver'
+
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
 end
