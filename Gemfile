@@ -47,6 +47,33 @@ gem 'redis-rails'
 gem 'redis-rack-cache'
 gem 'redis-namespace'
 
+# 用户系统
+gem "devise"
+gem "devise-encryptable"
+
+# 通知系统
+gem "notifications"
+gem "ruby-push-notifications"
+
+# 搜索
+gem "elasticsearch-model"
+gem "elasticsearch-rails"
+
+# 三方平台 OAuth 验证登陆
+gem "omniauth"
+gem "omniauth-github"
+
+# 验证码，头像
+gem "letter_avatar"
+gem "rucaptcha"
+
+# 邮件服务
+gem "postmark"
+gem "postmark-rails"
+
+# 权限管理
+gem "cancancan"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -75,6 +102,13 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem "database_cleaner"
+  gem "rspec-rails"
+  gem "rspec"
+  gem "rspec-support"
+  gem "rspec-mocks"
+  gem "rspec-core"
+  gem "rspec-expectations"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
