@@ -71,8 +71,8 @@ Rails.application.configure do
       expires_in: 90.minutes
   }
   config.action_dispatch.rack_cache = {
-      metastore: "redis://rails_gems_tool@localhost:6378/1/metastore",
-      entitystore: "redis://rails_gems_tool@localhost:6378/1/entitystore"
+      metastore: "redis://:rails_gems_tool@localhost:6378/1/metastore",
+      entitystore: "redis://:rails_gems_tool@localhost:6378/1/entitystore"
   }
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
