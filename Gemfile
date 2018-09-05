@@ -85,6 +85,7 @@ group :development do
   gem 'capistrano-bundler', '~> 1.3', require: false
   gem 'capistrano3-unicorn'
   gem 'capistrano-sidekiq'
+  gem 'capistrano-newrelic'
 
   #用于调试代码的一些工具
   gem 'pry'
