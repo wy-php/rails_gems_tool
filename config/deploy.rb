@@ -66,20 +66,20 @@ set :normalize_asset_timestamps, %w[public/images public/javascripts public/styl
 set :assets_roles, %i[web app]
 
 # bundle相关
-set :bundle_gemfile, -> { current_path.join('Gemfile') }
+set :bundle_gemfile, -> { release_path.join('Gemfile') }
 
 # capistrano3版本及以上引入whenever的时候带上该命令是可以执行whenever -i的，即更新crontab的配置。
 set :whenever_identifier, -> { "#{fetch(:application)}_#{fetch(:stage)}" }
-set :default_env, BUNDLE_GEMFILE: "#{current_path}/Gemfile"
-set :whenever_load_file, -> { File.join(current_path, 'config', 'schedule.rb') }
+set :default_env, BUNDLE_GEMFILE: "#{release_path}/Gemfile"
+set :whenever_load_file, -> { File.join(release_path, 'config', 'schedule.rb') }
 
 # 配置unicorn的运行的目录
-set :unicorn_config_path, -> { File.join(current_path, 'config', 'unicorn.rb') }
+set :unicorn_config_path, -> { File.join(release_path, 'config', 'unicorn.rb') }
 # 必须要设置该参数，否则无法执行。
 set :unicorn_roles, %i[db app web]
 
 # 配置sidekiq,这里不需要去设置sidekiq的启动或者重启，在capistrano_sidekiq中已经自动执行了。
-set :sidekiq_config, "#{current_path}/config/sidekiq.yml"
+set :sidekiq_config, "#{release_path}/config/sidekiq.yml"
 # 这个参数必须要设置，否则无法执行。
 set :sidekiq_roles, %i[db app web]
 
