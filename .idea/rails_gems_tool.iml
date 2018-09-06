@@ -95,6 +95,7 @@
     <orderEntry type="library" scope="PROVIDED" name="io-like (v0.3.0, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.7.0, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="json (v2.1.0, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="kaminari (v0.17.0, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="kgio (v2.11.2, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="launchy (v2.4.3, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="letter_opener (v1.6.0, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
@@ -196,6 +197,7 @@
     <orderEntry type="library" scope="PROVIDED" name="websocket-driver (v0.7.0, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket-extensions (v0.1.3, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="whenever (v0.10.0, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="wice_grid (v3.6.2, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="xpath (v3.1.0, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="yard (v0.9.16, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
   </component>
