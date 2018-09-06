@@ -94,14 +94,11 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
 
-  # 格式化打印
-  gem 'awesome_print'
-
   #性能分析工具
   gem "rubycritic", :require => false
 
   #代码风格指南工具
-  gem "rubocop", ">= 0.49.0", require: false
+  gem 'rubocop', '~> 0.58.2', require: false
 
   # 检测你的gem使用情况
   gem "derailed"
