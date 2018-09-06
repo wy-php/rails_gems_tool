@@ -51,7 +51,6 @@
     <orderEntry type="library" scope="PROVIDED" name="byebug (v10.0.2, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="capistrano (v3.11.0, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="capistrano-bundler (v1.3.0, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="capistrano-newrelic (v0.10.1, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="capistrano-rails (v1.4.0, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="capistrano-rvm (v0.1.2, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="capistrano-sidekiq (v1.0.2, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
@@ -110,7 +109,6 @@
     <orderEntry type="library" scope="PROVIDED" name="mysql2 (v0.5.2, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="net-scp (v1.2.1, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="net-ssh (v5.0.2, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="newrelic_rpm (v5.3.0.346, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="nio4r (v2.3.1, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.8.4, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="parallel (v1.12.1, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />

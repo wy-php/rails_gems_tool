@@ -112,6 +112,9 @@ group :development do
 
   # 代码质量控制
   gem 'rails_best_practices'
+
+  #终端显示美化工具
+  gem 'lolcat'
 end
 
 group :test do
