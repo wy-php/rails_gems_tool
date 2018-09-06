@@ -46,8 +46,6 @@ gem 'hiredis', '~> 0.6.1'
 gem 'redis-rails'
 gem 'redis-rack-cache'
 gem 'redis-namespace'
-# 监控rails运行情况的工具
-gem 'newrelic_rpm'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -85,7 +83,6 @@ group :development do
   gem 'capistrano-bundler', '~> 1.3', require: false
   gem 'capistrano3-unicorn'
   gem 'capistrano-sidekiq'
-  gem 'capistrano-newrelic'
 
   #用于调试代码的一些工具
   gem 'pry'

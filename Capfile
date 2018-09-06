@@ -35,7 +35,6 @@ require "capistrano/rails/migrations"
 require 'capistrano3/unicorn'
 require "whenever/capistrano"
 require 'capistrano/sidekiq'
-require 'capistrano/newrelic'
 # require 'capistrano/sidekiq/monit'
 # require "capistrano/passenger"
 

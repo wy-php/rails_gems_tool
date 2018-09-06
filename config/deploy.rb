@@ -81,19 +81,12 @@ set :sidekiq_config, "#{current_path}/config/sidekiq.yml"
 #这个参数必须要设置，否则无法执行。
 set :sidekiq_roles,[:db, :app, :web]
 
-#配置newrelic系统监控程序
-set :newrelic_env, fetch(:stage, fetch(:rack_env, fetch(:rails_env, 'production')))
-set :newrelic_changelog, "#{current_path}/log/newrelic_changelog.log"
-set :newrelic_desc, ""
-set :newrelic_deploy_user, "live"
 
 #执行deploy中进行的操作
 # 在第一次部署的时候运行该命令,用来创建数据库。
 before "deploy:updated", "deploy:curd_database"
 #使用unicorn去运行该命令，如果是首次运行或者服务器端的unicorn进程挂掉的情况的话使用unicorn:start，其他的情况使用unicorn:restart
 after 'deploy:publishing', 'unicorn:restart'
-#配置newrelic系统监控程序
-before 'deploy:finished', 'newrelic:notice_deployment'
 
 
 namespace :deploy do
