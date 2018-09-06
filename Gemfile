@@ -65,8 +65,6 @@ group :development, :test do
   #开发环境中发邮件的时候不用发到真实的邮箱中了
   gem "letter_opener"
 
-  #一个文档生成工具
-  gem "yard", ">= 0.9.11"
 end
 
 group :development do
@@ -108,6 +106,15 @@ group :development do
   # 检测你的gem使用情况
   gem "derailed"
   gem 'derailed_benchmarks'
+
+  #一个文档生成工具
+  gem "yard", ">= 0.9.11"
+
+  # 代码质量控制
+  gem 'rails_best_practices'
+
+  #终端显示美化工具
+  gem 'lolcat'
 end
 
 group :test do
