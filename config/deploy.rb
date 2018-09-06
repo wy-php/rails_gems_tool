@@ -90,6 +90,8 @@ before 'deploy:updated', 'deploy:curd_database'
 after 'deploy:publishing', 'unicorn:restart'
 # 执行db/fixtures/*下的任务
 before 'deploy:publishing', 'db:seed_fu'
+# 等发布完成之后把那些没有用到的gem给删除了
+after 'deploy:published', 'bundler:clean'
 
 namespace :deploy do
   # 自定义了一个部署任务, 即自动运行 rake RAILS_ENV=rails_env db:create
