@@ -65,6 +65,7 @@ set :assets_roles, [:web, :app]
 
 # bundle相关
 set :bundle_gemfile, -> { current_path.join('Gemfile') }
+set :bundle_env_variables, { nokogiri_use_system_libraries: 1 }
 
 #capistrano3版本及以上引入whenever的时候带上该命令是可以执行whenever -i的，即更新crontab的配置。
 set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
@@ -87,6 +88,7 @@ set :sidekiq_roles,[:db, :app, :web]
 before "deploy:updated", "deploy:curd_database"
 #使用unicorn去运行该命令，如果是首次运行或者服务器端的unicorn进程挂掉的情况的话使用unicorn:start，其他的情况使用unicorn:restart
 after 'deploy:publishing', 'unicorn:restart'
+before 'deploy:updated', 'bundler:install'
 
 
 namespace :deploy do

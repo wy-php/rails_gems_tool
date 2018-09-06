@@ -160,6 +160,7 @@
     <orderEntry type="library" scope="PROVIDED" name="ruby_parser (v3.11.0, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubycritic (v3.5.0, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubyzip (v1.2.1, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rucaptcha (v2.2.0, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass (v3.5.7, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass-listen (v4.0.0, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass-rails (v5.0.7, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
