@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://gems.ruby-china.com'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -35,82 +37,81 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'sidekiq'
 gem 'unicorn'
 gem 'whenever', require: false
-gem 'sidekiq'
 
-#redis相关的。 hiredis是一个高性能的redis，redis-rails和redis-rack-cache是提供了完整的一套如(cache,session,http cache)等存储功能的包。
+# redis相关的。 hiredis是一个高性能的redis，redis-rails和redis-rack-cache是提供了完整的一套如(cache,session,http cache)等存储功能的包。
 # redis-namespace这个是可以让redis在配置文件中设置命名空间的gem包
-gem 'redis', '~> 4.0.2'
 gem 'hiredis', '~> 0.6.1'
-gem 'redis-rails'
-gem 'redis-rack-cache'
+gem 'redis', '~> 4.0.2'
 gem 'redis-namespace'
+gem 'redis-rack-cache'
+gem 'redis-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
 
-  #单元测试
-  gem "rspec-rails"
-  gem "rspec"
-  gem "rspec-support"
-  gem "rspec-mocks"
-  gem "rspec-core"
-  gem "rspec-expectations"
+  # 单元测试
+  gem 'rspec'
+  gem 'rspec-core'
+  gem 'rspec-expectations'
+  gem 'rspec-mocks'
+  gem 'rspec-rails'
+  gem 'rspec-support'
 
-  #数据库清洗工具
-  gem "database_cleaner"
+  # 数据库清洗工具
+  gem 'database_cleaner'
 
-  #开发环境中发邮件的时候不用发到真实的邮箱中了
-  gem "letter_opener"
-
+  # 开发环境中发邮件的时候不用发到真实的邮箱中了
+  gem 'letter_opener'
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console', '>= 3.3.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
   # capistrano相关的gem
-  gem 'capistrano', "~> 3.11", require: false
-  gem 'capistrano-rvm', require: false
-  gem "capistrano-rails", "~> 1.4", require: false
+  gem 'capistrano', '~> 3.11', require: false
   gem 'capistrano-bundler', '~> 1.3', require: false
-  gem 'capistrano3-unicorn'
+  gem 'capistrano-rails', '~> 1.4', require: false
+  gem 'capistrano-rvm', require: false
   gem 'capistrano-sidekiq'
+  gem 'capistrano3-unicorn'
 
-  #用于调试代码的一些工具
+  # 用于调试代码的一些工具
   gem 'pry'
-  gem 'pry-rails'
   gem 'pry-byebug'
+  gem 'pry-rails'
   gem 'pry-remote'
 
   # 友好且详尽的错误显示页面
-  gem "better_errors"
-  gem "binding_of_caller"
+  gem 'better_errors'
+  gem 'binding_of_caller'
 
-  #性能分析工具
-  gem "rubycritic", :require => false
+  # 性能分析工具
+  gem 'rubycritic', require: false
 
-  #代码风格指南工具
+  # 代码风格指南工具。具体使用,在根目录输入命令 rubocop -h 查看即可
   gem 'rubocop', '~> 0.58.2', require: false
 
   # 检测你的gem使用情况
-  gem "derailed"
+  gem 'derailed'
   gem 'derailed_benchmarks'
 
-  #一个文档生成工具
-  gem "yard", ">= 0.9.11"
+  # 一个文档生成工具
+  gem 'yard', '>= 0.9.11'
 
   # 代码质量控制
   gem 'rails_best_practices'
 
-  #终端显示美化工具
+  # 终端显示美化工具
   gem 'lolcat'
 end
 
@@ -121,10 +122,10 @@ group :test do
 
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
-  gem 'webmock'
-  gem 'timecop'
   gem 'launchy'
+  gem 'timecop'
+  gem 'webmock'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

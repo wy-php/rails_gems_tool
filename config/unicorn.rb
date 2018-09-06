@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Sample verbose configuration file for Unicorn (not Rack)
 #
 # This configuration file documents many features of Unicorn
@@ -10,41 +12,41 @@
 
 # Use at least one worker per core if you're on a dedicated server,
 # more will usually help for _short_ waits on databases/caches.
-app_folder = File.expand_path("../..", __FILE__)
+app_folder = File.expand_path('..', __dir__)
 # app_name = 'rails_gems_tool'
 # app_folder = "#{app_path}/#{app_name}"
 log_folder = "#{app_folder}/log"
 pids_folder = "#{app_folder}/tmp/pids"
 
-#工作进程设置。如果环境中没有设置就设置4个
+# 工作进程设置。如果环境中没有设置就设置4个
 worker_processes Integer(ENV['UNICORN_WORKERS'] || 4)
 
-#设置工作目录，这里设置项目的根目录
+# 设置工作目录，这里设置项目的根目录
 working_directory app_folder
 
-#预加载程序，以节省内存。
+# 预加载程序，以节省内存。
 preload_app true
 
-#unicorn监听的端口号，这里使用一个backlog以便在繁忙时进行更快的进行故障转移。
-listen "#{app_folder}/tmp/sockets/unicorn.sock", :backlog => 64
-listen 3009, :tcp_nopush => true
+# unicorn监听的端口号，这里使用一个backlog以便在繁忙时进行更快的进行故障转移。
+listen "#{app_folder}/tmp/sockets/unicorn.sock", backlog: 64
+listen 3009, tcp_nopush: true
 
-#超时时间
+# 超时时间
 timeout 60
 
-#pid的保存文件路径
+# pid的保存文件路径
 pid "#{pids_folder}/unicorn.pid"
 
-#错误输出目录
+# 错误输出目录
 stderr_path "#{log_folder}/unicorn_err.log"
 
-#普通的日志输出目录
+# 普通的日志输出目录
 stdout_path "#{log_folder}/unicorn.log"
 
 # 修正无缝重启unicorn后更新的Gem未生效的问题，原因是config/boot.rb会优先从ENV中获取BUNDLE_GEMFILE，
 # 而无缝重启时ENV['BUNDLE_GEMFILE']的值并未被清除，仍指向旧目录的Gemfile
-before_exec do |server|
-  #注意这个需要deploy.rb中的配置是。 set :current_directory, "current"
+before_exec do |_server|
+  # 注意这个需要deploy.rb中的配置是。 set :current_directory, "current"
   ENV['BUNDLE_GEMFILE'] = "#{app_folder}/Gemfile"
 end
 # Since Unicorn is never exposed to outside clients, it does not need to
@@ -60,7 +62,6 @@ end
 # listen on both a Unix domain socket and a TCP port,
 # we use a shorter backlog for quicker failover when busy
 
-
 # Enable this flag to have unicorn test client connections by writing the
 # beginning of the HTTP headers before calling the application.  This
 # prevents calling the application for connections that have disconnected
@@ -69,14 +70,14 @@ end
 # fast LAN.
 check_client_connection false
 
-#防止多次运行钩子的局部变量
+# 防止多次运行钩子的局部变量
 run_once = true
 
 before_fork do |server, worker|
   # the following is highly recomended for Rails + "preload_app true"
   # as there's no need for the master process to hold a connection
-  defined?(ActiveRecord::Base) and
-      ActiveRecord::Base.connection.disconnect!
+  defined?(ActiveRecord::Base) &&
+    ActiveRecord::Base.connection.disconnect!
 
   # Occasionally, it may be necessary to run non-idempotent code in the
   # master before forking.  Keep in mind the above disconnect! example
@@ -90,7 +91,7 @@ before_fork do |server, worker|
   # 这个是允许一个新的进程逐步递增淘汰停止老的进程，去避免"惊群"(当一个进程过来的时候，如果是有多个子进程空闲沉睡的的话，此时
   # 只有一个进程被最先使用，其他的都不会被使用，所以浪费了资源开销)现象，特别是在配置了preload_app false 的时候。最后一个将会发出退出信号杀死老进程。
   old_pid = "#{server.config[:pid]}.oldbin"
-  if File.exists?(old_pid) && old_pid != server.pid
+  if File.exist?(old_pid) && old_pid != server.pid
     begin
       sig = (worker.nr + 1) >= server.worker_processes ? :QUIT : :TTOU
       Process.kill(sig, File.read(old_pid).to_i)
@@ -107,14 +108,14 @@ before_fork do |server, worker|
   sleep 1
 end
 
-after_fork do |server, worker|
+after_fork do |_server, _worker|
   # per-process listener ports for debugging/admin/migrations
   # addr = "127.0.0.1:#{9293 + worker.nr}"
   # server.listen(addr, :tries => -1, :delay => 5, :tcp_nopush => true)
 
   # the following is *required* for Rails + "preload_app true",
-  defined?(ActiveRecord::Base) and
-      ActiveRecord::Base.establish_connection
+  defined?(ActiveRecord::Base) &&
+    ActiveRecord::Base.establish_connection
 
   # if preload_app is true, then you may also want to check and
   # restart any other shared sockets/descriptors such as Memcached,

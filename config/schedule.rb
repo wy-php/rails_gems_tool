@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Use this file to easily define all of your cron jobs.
 #
 # It's helpful, but not entirely necessary to understand cron before proceeding.
@@ -18,10 +20,10 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-set :output, "log/cron_log.log"
+set :output, 'log/cron_log.log'
 
 every '* * * * *' do
-  rake "practice:tests"
+  rake 'practice:tests'
   command "echo 'you can use raw cron syntax too'"
   command "ruby 'test.rb'"
 end
