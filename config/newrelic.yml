@@ -10,7 +10,7 @@
 # For full documentation of agent configuration options, please refer to
 # https://docs.newrelic.com/docs/agents/ruby-agent/installation-configuration/ruby-agent-configuration
 
-common: &default_settingsfit
+common: &default_settings
   # Required license key associated with your New Relic account.
   license_key: 09f2fb85ad378e6c2edd2e169f2fcb3c7e2e79b0
 

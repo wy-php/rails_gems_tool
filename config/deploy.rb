@@ -83,11 +83,8 @@ set :sidekiq_roles,[:db, :app, :web]
 
 #配置newrelic系统监控程序
 set :newrelic_env, fetch(:stage, fetch(:rack_env, fetch(:rails_env, 'production')))
-# Deployment changelog defaults to the git changelog, if using git
-set :newrelic_changelog, "<git changelog if available>"
-# Deployment description
-set :newrelic_desc, "系统监控程序"
-# Deploy user if set will be used instead of the VCS user.
+set :newrelic_changelog, "#{current_path}/log/newrelic_changelog.log"
+set :newrelic_desc, ""
 set :newrelic_deploy_user, "live"
 
 #执行deploy中进行的操作
