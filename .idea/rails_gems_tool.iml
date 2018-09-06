@@ -46,6 +46,7 @@
     <orderEntry type="library" scope="PROVIDED" name="bindex (v0.5.0, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="binding_of_caller (v0.8.0, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bootsnap (v1.3.1, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="brakeman (v4.3.1, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.3, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v1.16.4, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="byebug (v10.0.2, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
@@ -166,6 +167,7 @@
     <orderEntry type="library" scope="PROVIDED" name="sass (v3.5.7, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass-listen (v4.0.0, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass-rails (v5.0.7, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="seed-fu (v2.3.9, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="selenium-webdriver (v3.14.0, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sexp_processor (v4.11.0, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sidekiq (v5.2.1, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />

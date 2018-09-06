@@ -49,6 +49,9 @@ gem 'redis-namespace'
 gem 'redis-rack-cache'
 gem 'redis-rails'
 
+# 数据库初始数据相关
+gem 'seed-fu'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -121,6 +124,9 @@ group :development do
 
   # 检查没有用到的routes。 执行命令 rake traceroute
   gem 'traceroute'
+
+  # 语法漏洞检测工具。命令 brakeman  或者brakeman ./config/deploy.rb,具体的可用brakeman -h
+  gem 'brakeman'
 end
 
 group :test do

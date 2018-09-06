@@ -88,6 +88,8 @@ set :sidekiq_roles, %i[db app web]
 before 'deploy:updated', 'deploy:curd_database'
 # 使用unicorn去运行该命令，如果是首次运行或者服务器端的unicorn进程挂掉的情况的话使用unicorn:start，其他的情况使用unicorn:restart
 after 'deploy:publishing', 'unicorn:restart'
+# 执行db/fixtures/*下的任务
+before 'deploy:publishing', 'db:seed_fu'
 
 namespace :deploy do
   # 自定义了一个部署任务, 即自动运行 rake RAILS_ENV=rails_env db:create
