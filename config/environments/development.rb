@@ -60,6 +60,13 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
+  console do
+    # 这个块只在运行控制台时运行
+    # 因此可以安全引入 pry
+    require "pry"
+    config.console = Pry
+  end
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 

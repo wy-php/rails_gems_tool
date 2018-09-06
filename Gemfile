@@ -98,21 +98,20 @@ group :development do
   # 性能分析工具
   gem 'rubycritic', require: false
 
-  # 代码风格指南工具。具体使用,在根目录输入命令 rubocop -h 查看即可
+  # 代码风格指南工具。具体使用,在根目录输入命令 rubocop -h 查看即可。 rubocop ./config/deploy
   gem 'rubocop', '~> 0.58.2', require: false
 
-  # 检测你的gem使用情况
+  # 检测你的gem使用情况。命令：  bundle exec derailed bundle:mem   使用derailed -h查看可用命令
   gem 'derailed'
+  gem 'stackprof'
   gem 'derailed_benchmarks'
 
   # 一个文档生成工具
   gem 'yard', '>= 0.9.11'
 
-  # 代码质量控制
+  # 代码质量控制。使用命令： rails_best_practices . 分析。 -h帮助
   gem 'rails_best_practices'
 
-  # 终端显示美化工具
-  gem 'lolcat'
 end
 
 group :test do
