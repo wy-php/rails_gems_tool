@@ -73,7 +73,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'web-console', '>= 3.3.0'
 
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  # 运行测试时，保持development在后台运行，不需要重启
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
@@ -112,6 +112,15 @@ group :development do
   # 代码质量控制。使用命令： rails_best_practices . 分析。 -h帮助
   gem 'rails_best_practices'
 
+  # model中自动生成数据表相关的文档。命令 rails g annotate:install 生成一个rake，之后db:migrate的时候会自动更新model中的文档了。
+  # rake annotate_routes 该命令生成路由相关的文档
+  gem 'annotate'
+
+  # Chrome中的扩展，可以在Chrome开发者工具中查看详细信息。
+  gem 'meta_request'
+
+  # 检查没有用到的routes。 执行命令 rake traceroute
+  gem 'traceroute'
 end
 
 group :test do
