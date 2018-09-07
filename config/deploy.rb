@@ -23,7 +23,7 @@ append :linked_files, 'config/database.yml', 'config/config.yml', 'config/redis.
 #输入要发布的分支
 # ask(:use_branch, 'master', echo: true)
 # @branch = fetch(:use_branch)
-@branch = 'new_version'
+@branch = 'deploy_need_gems'
 
 #进行参数设置
 set :deploy_to, @complete_app_dir  #部署的服务器的路径。默认是 { "/var/www/#{fetch(:application)}" }
