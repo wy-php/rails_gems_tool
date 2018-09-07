@@ -38,8 +38,8 @@ set :log_level, :debug             # 使用SSHKit的时候，选择的日志的�
 set :format, :airbrussh            # 还有其他的变量 :dot和 :pretty,使用airbrussh的时候打印的是:warn or :error，使用:dot或者:pretty打印配置的。
 set :keep_releases, 5              # 保持最近多少次的部署，在服务器上是release文件夹中存在多少个对应的源码的文件夹。
 set :shared_directory, 'shared'    # 设置部署的服务器端的共享文件夹目录名。默认: shared
-set :releases_directory, 'releases' # 设置部署的服务器端的发布的文件夹目录名。默认: releases
-set :current_directory, 'current' # 设置指向当前最新成功部署发布文件夹的当前链接的名称。默认: current
+set :releases_directory, 'releases'# 设置部署的服务器端的发布的文件夹目录名。默认: releases
+set :current_directory, 'current'  # 设置指向当前最新成功部署发布文件夹的当前链接的名称。默认: current
 
 # 设置release的目录格式
 set :release_name, Time.now.strftime('%Y%m%d%H%M%S')
@@ -65,7 +65,9 @@ set :normalize_asset_timestamps, %w[public/images public/javascripts public/styl
 # 设置编译的静态资源角色
 set :assets_roles, %i[web app]
 
-# bundle相关
+# bundle相关。本身deploy.rake有做在updating的时候设置set_release_path的，然后就可以设置对应的release_path了，但是不知道为什么没有设置
+# 所以这里需要在第一次发布的时候设置下，之后就可以删除了，并设置set :bundle_gemfile, -> { current_path.join('Gemfile') }即可
+# set_release_path
 set :bundle_gemfile, -> { release_path.join('Gemfile') }
 
 # capistrano3版本及以上引入whenever的时候带上该命令是可以执行whenever -i的，即更新crontab的配置。
@@ -77,6 +79,8 @@ set :whenever_load_file, -> { File.join(release_path, 'config', 'schedule.rb') }
 set :unicorn_config_path, -> { File.join(release_path, 'config', 'unicorn.rb') }
 # 必须要设置该参数，否则无法执行。
 set :unicorn_roles, %i[db app web]
+# 这个参数必须要配置，要不然会默认执行development环境的。
+set :unicorn_rack_env, -> { fetch(:stage) }
 
 # 配置sidekiq,这里不需要去设置sidekiq的启动或者重启，在capistrano_sidekiq中已经自动执行了。
 set :sidekiq_config, "#{release_path}/config/sidekiq.yml"
@@ -87,7 +91,7 @@ set :sidekiq_roles, %i[db app web]
 # 在第一次部署的时候运行该命令,用来创建数据库。
 before 'deploy:updated', 'deploy:curd_database'
 # 使用unicorn去运行该命令，如果是首次运行或者服务器端的unicorn进程挂掉的情况的话使用unicorn:start，其他的情况使用unicorn:restart
-after 'deploy:publishing', 'unicorn:restart'
+after 'deploy:publishing', 'deploy:restart'
 # 执行db/fixtures/*下的任务
 before 'deploy:publishing', 'db:seed_fu'
 # 等发布完成之后把那些没有用到的gem给删除了,这个建议等删除的gem比较多的话再用。
@@ -107,5 +111,10 @@ namespace :deploy do
         end
       end
     end
+  end
+
+  # 重启unicorn服务
+  task :restart do
+    invoke 'unicorn:legacy_restart'
   end
 end
