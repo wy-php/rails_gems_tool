@@ -30,6 +30,8 @@
 /config/master.key
 .idea
 .idea/
-config/deploy.rb
-config/deploy
 .rubocop.yml
+config/database.yml
+config/config.yml
+config/redis.yml
+config/master.key

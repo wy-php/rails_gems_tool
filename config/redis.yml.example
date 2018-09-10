@@ -1,0 +1,26 @@
+base: &base
+  host: 127.0.0.1
+  password: rails_gems_tool
+
+development: &development
+  <<: *base
+  port: 6379
+  password:
+
+production:
+  <<: *base
+  port: 6378
+
+mqtt:
+  url:  redis://:rails_gems_tool@127.0.0.1:6377/0
+
+sidekiq:
+  url:  redis://:rails_gems_tool@127.0.0.1:6377/1
+  timeout: 2
+  size: 25
+  namespace: highlander_sidekiq
+
+local_sidekiq:
+  url:  redis://127.0.0.1:6379/2
+  timeout: 2
+  namespace: highlander_sidekiq
