@@ -32,3 +32,4 @@
 .idea/
 config/deploy.rb
 config/deploy
+.rubocop.yml
