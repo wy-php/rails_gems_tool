@@ -58,17 +58,6 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 
-  # 单元测试
-  gem 'rspec'
-  gem 'rspec-core'
-  gem 'rspec-expectations'
-  gem 'rspec-mocks'
-  gem 'rspec-rails'
-  gem 'rspec-support'
-
-  # 数据库清洗工具
-  gem 'database_cleaner'
-
   # 开发环境中发邮件的时候不用发到真实的邮箱中了
   gem 'letter_opener'
 end
@@ -105,6 +94,7 @@ group :development do
 
   # 代码风格指南工具。具体使用,在根目录输入命令 rubocop -h 查看即可。 rubocop ./config/deploy
   gem 'rubocop', '~> 0.58.2', require: false
+  gem 'rubocop-rspec', '~> 1.29', require: false
 
   # 检测你的gem使用情况。命令：  bundle exec derailed bundle:mem   使用derailed -h查看可用命令
   gem 'derailed'
@@ -121,7 +111,7 @@ group :development do
   # rake annotate_routes 该命令生成路由相关的文档
   gem 'annotate'
 
-  # Chrome中的扩展，可以在Chrome开发者工具中查看详细信息。
+  # Chrome中的扩展，可以在Chrome开发者工具中查看如请求响应时间等的详细信息。
   gem 'meta_request'
 
   # 检查没有用到的routes。 执行命令 rake traceroute
@@ -129,6 +119,9 @@ group :development do
 
   # 语法漏洞检测工具。命令 brakeman  或者brakeman ./config/deploy.rb,具体的可用brakeman -h
   gem 'brakeman'
+
+  # 帮助解决rails的N+1问题
+  gem "bullet"
 end
 
 group :test do
@@ -141,6 +134,24 @@ group :test do
   gem 'launchy'
   gem 'timecop'
   gem 'webmock'
+
+  # 单元测试
+  gem 'rspec'
+  gem 'rspec-core'
+  gem 'rspec-expectations'
+  gem 'rspec-mocks'
+  gem 'rspec-rails'
+  gem 'rspec-support'
+
+  # 数据库清洗工具
+  gem 'database_cleaner'
+
+  # 生成虚假数据
+  gem "faker"
+
+  # 模拟用户的行为，与html交互
+  gem "selenium-webdriver"
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -48,6 +48,7 @@
     <orderEntry type="library" scope="PROVIDED" name="bootsnap (v1.3.1, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="brakeman (v4.3.1, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.3, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bullet (v5.7.6, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v1.16.4, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="byebug (v10.0.2, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="callsite (v0.0.11, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
@@ -82,6 +83,7 @@
     <orderEntry type="library" scope="PROVIDED" name="erubi (v1.7.1, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubis (v2.7.0, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="execjs (v2.7.0, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="faker (v1.9.1, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ffi (v1.9.25, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="flay (v2.12.0, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="flog (v4.6.2, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
@@ -159,6 +161,7 @@
     <orderEntry type="library" scope="PROVIDED" name="rspec-rails (v3.8.0, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec-support (v3.8.0, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubocop (v0.58.2, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rubocop-rspec (v1.29.1, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ruby-progressbar (v1.10.0, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ruby_dep (v1.5.0, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ruby_parser (v3.11.0, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
@@ -191,6 +194,7 @@
     <orderEntry type="library" scope="PROVIDED" name="uglifier (v4.1.18, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="unicode-display_width (v1.4.0, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="unicorn (v5.4.1, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="uniform_notifier (v1.11.0, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="virtus (v1.0.5, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="web-console (v3.6.2, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="webmock (v3.4.2, RVM: ruby-2.5.1 [rails_gems_tool]) [gem]" level="application" />
