@@ -52,7 +52,8 @@ gem 'redis-rails'
 # 数据库初始数据相关。默认读取的是db/fixtures下的文件。
 gem 'seed-fu'
 
-gem 'wice_grid'
+# 能创造简单并且比较高级的搜索条件。
+gem 'ransack', '~> 1.8.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
