@@ -28,8 +28,9 @@
 #      rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
 
 Rails.application.routes.draw do
-  get 'static_page/home'
-  get 'static_page/help'
+  get 'static_pages/home'
+  get 'static_pages/help'
+  get 'static_pages/about'
   resources :users
   root 'static_page#home'
   # sidekiq的路由相关
