@@ -28,11 +28,10 @@
 #      rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
 
 Rails.application.routes.draw do
-  resources :microposts
-  root 'users#index'
-  resources :products
+  get 'static_page/home'
+  get 'static_page/help'
   resources :users
-
+  root 'static_page#home'
   # sidekiq的路由相关
   require 'sidekiq/web'
   if Rails.env.production?

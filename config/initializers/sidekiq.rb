@@ -2,7 +2,7 @@
 
 if Rails.env.production?
   @redis_sidekiq = REDIS_CONFIG['sidekiq']
-elsif Rails.env.development?
+else
   @redis_sidekiq = REDIS_CONFIG['local_sidekiq']
 end
 
