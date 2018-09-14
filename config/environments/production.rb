@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -14,7 +16,7 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
   # 是否开启csrf保护，默认是true开启
-  config.action_controller.allow_forgery_protection = false
+  config.action_controller.allow_forgery_protection = true
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
   # config.require_master_key = true
@@ -56,23 +58,23 @@ Rails.application.configure do
   config.log_level = :debug
 
   # Prepend all log lines with the following tags.
-  config.log_tags = [ :request_id ]
+  config.log_tags = [:request_id]
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
   # 配置缓存的存储位置为redis,redis服务器总共可以设置16个数据库，如果没有设置默认是0
   config.cache_store = :redis_store, {
-      host: "127.0.0.1",
-      port: 6378,
-      db: 0,
-      password: "rails_gems_tool",
-      namespace: "cache"
+    host: '127.0.0.1',
+    port: 6378,
+    db: 0,
+    password: 'rails_gems_tool',
+    namespace: 'cache'
   }, {
-      expires_in: 90.minutes
+    expires_in: 90.minutes
   }
   config.action_dispatch.rack_cache = {
-      metastore: "redis://rails_gems_tool@localhost:6378/1/metastore",
-      entitystore: "redis://rails_gems_tool@localhost:6378/1/entitystore"
+    metastore: 'redis://:rails_gems_tool@localhost:6378/1/metastore',
+    entitystore: 'redis://:rails_gems_tool@localhost:6378/1/entitystore'
   }
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
@@ -98,7 +100,7 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
+  if ENV['RAILS_LOG_TO_STDOUT'].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)

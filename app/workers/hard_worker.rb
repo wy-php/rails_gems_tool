@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class HardWorker
   include Sidekiq::Worker
-  sidekiq_options :queue => :critical, :retry => 3, :dead => false
+  sidekiq_options queue: :critical, retry: 3, dead: false
 
-  sidekiq_retries_exhausted do |msg, ex|
+  sidekiq_retries_exhausted do |msg, _ex|
     Sidekiq.logger.warn "Failed #{msg['class']} with #{msg['args']}: #{msg['error_message']}"
   end
 
@@ -11,7 +13,7 @@ class HardWorker
   end
 
   def perform(name, count)
-    p name.to_s+count.to_s
+    p name.to_s + count.to_s
     logger.info "Here's some info: #{hash.inspect}"
   end
 end

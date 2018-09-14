@@ -29,5 +29,9 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 .idea
-config/deploy.rb
-config/deploy
+.idea/
+.rubocop.yml
+config/database.yml
+config/config.yml
+config/redis.yml
+config/master.key

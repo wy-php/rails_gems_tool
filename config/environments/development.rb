@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -27,11 +29,11 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
-  config.cache_store = :redis_store, "redis://localhost:6379/0/cache", { expires_in: 90.minutes }
+  config.cache_store = :redis_store, 'redis://localhost:6379/0/cache', { expires_in: 90.minutes }
 
   config.action_dispatch.rack_cache = {
-      metastore: "redis://localhost:6379/1/metastore",
-      entitystore: "redis://localhost:6379/1/entitystore"
+    metastore: 'redis://localhost:6379/1/metastore',
+    entitystore: 'redis://localhost:6379/1/entitystore'
   }
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
@@ -57,6 +59,13 @@ Rails.application.configure do
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
+
+  console do
+    # 这个块只在运行控制台时运行
+    # 因此可以安全引入 pry
+    require "pry"
+    config.console = Pry
+  end
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
