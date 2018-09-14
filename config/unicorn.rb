@@ -45,10 +45,10 @@ stdout_path "#{log_folder}/unicorn.log"
 
 # 修正无缝重启unicorn后更新的Gem未生效的问题，原因是config/boot.rb会优先从ENV中获取BUNDLE_GEMFILE，
 # 而无缝重启时ENV['BUNDLE_GEMFILE']的值并未被清除，仍指向旧目录的Gemfile
-# before_exec do |_server|
-#   # 注意这个需要deploy.rb中的配置是。 set :current_directory, "current"
-#   ENV['BUNDLE_GEMFILE'] = "#{app_folder}/Gemfile"
-# end
+before_exec do |_server|
+  # 注意这个需要deploy.rb中的配置是。 set :current_directory, "current"
+  ENV['BUNDLE_GEMFILE'] = "#{app_folder}/Gemfile"
+end
 # Since Unicorn is never exposed to outside clients, it does not need to
 # run on the standard HTTP port (80), there is no reason to start Unicorn
 # as root unless it's from system init scripts.
