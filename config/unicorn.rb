@@ -15,6 +15,7 @@
 app_folder = File.expand_path('..', __dir__)
 # app_name = 'rails_gems_tool'
 # app_folder = "#{app_path}/#{app_name}"
+p "--------------------#{app_folder}-------------------"
 log_folder = "#{app_folder}/log"
 pids_folder = "#{app_folder}/tmp/pids"
 
