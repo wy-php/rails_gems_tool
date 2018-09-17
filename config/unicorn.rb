@@ -15,6 +15,7 @@
 app_folder = File.expand_path('..', __dir__)
 # app_name = 'rails_gems_tool'
 # app_folder = "#{app_path}/#{app_name}"
+
 log_folder = "#{app_folder}/log"
 pids_folder = "#{app_folder}/tmp/pids"
 
@@ -76,8 +77,7 @@ run_once = true
 before_fork do |server, worker|
   # the following is highly recomended for Rails + "preload_app true"
   # as there's no need for the master process to hold a connection
-  defined?(ActiveRecord::Base) &&
-    ActiveRecord::Base.connection.disconnect!
+  defined?(ActiveRecord::Base) && ActiveRecord::Base.connection.disconnect!
 
   # Occasionally, it may be necessary to run non-idempotent code in the
   # master before forking.  Keep in mind the above disconnect! example
@@ -114,8 +114,7 @@ after_fork do |_server, _worker|
   # server.listen(addr, :tries => -1, :delay => 5, :tcp_nopush => true)
 
   # the following is *required* for Rails + "preload_app true",
-  defined?(ActiveRecord::Base) &&
-    ActiveRecord::Base.establish_connection
+  defined?(ActiveRecord::Base) && ActiveRecord::Base.establish_connection
 
   # if preload_app is true, then you may also want to check and
   # restart any other shared sockets/descriptors such as Memcached,
