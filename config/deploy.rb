@@ -81,7 +81,6 @@ set :unicorn_config_path, -> { File.join(release_path, 'config', 'unicorn.rb') }
 set :unicorn_roles, %i[db app web]
 # 这个参数必须要配置，要不然会默认执行development环境的。
 set :unicorn_rack_env, -> { fetch(:stage) }
-set :unicorn_bundle_gemfile, -> { release_path.join('Gemfile') }
 
 # 配置sidekiq,这里不需要去设置sidekiq的启动或者重启，在capistrano_sidekiq中已经自动执行了。
 set :sidekiq_config, "#{release_path}/config/sidekiq.yml"
@@ -91,7 +90,7 @@ set :sidekiq_roles, %i[db app web]
 # 执行deploy中进行的操作
 # 在第一次部署的时候运行该命令,用来创建数据库。
 before 'deploy:updated', 'deploy:curd_database'
-# 使用unicorn去运行该命令，如果是首次运行或者服务器端的unicorn进程挂掉的情况的话使用unicorn:start，其他的情况使用unicorn:restart
+# 使用unicorn去运行该命令，如果是首次运行或者服务器端的unicorn进程挂掉的情况的话使用unicorn:start，其他的情况使用unicorn:restart或者unicorn:legacy_restart
 after 'deploy:publishing', 'deploy:restart'
 # 执行db/fixtures/*下的任务
 before 'deploy:publishing', 'db:seed_fu'
