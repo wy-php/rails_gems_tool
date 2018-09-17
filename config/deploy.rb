@@ -90,7 +90,7 @@ set :sidekiq_roles, %i[db app web]
 # 执行deploy中进行的操作
 # 在第一次部署的时候运行该命令,用来创建数据库。
 before 'deploy:updated', 'deploy:curd_database'
-# 使用unicorn去运行该命令，如果是首次运行或者服务器端的unicorn进程挂掉的情况的话使用unicorn:start，其他的情况使用unicorn:restart
+# 使用unicorn去运行该命令，如果是首次运行或者服务器端的unicorn进程挂掉的情况的话使用unicorn:start，其他的情况使用unicorn:restart或者unicorn:legacy_restart
 after 'deploy:publishing', 'deploy:restart'
 # 执行db/fixtures/*下的任务
 before 'deploy:publishing', 'db:seed_fu'
