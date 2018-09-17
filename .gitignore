@@ -35,3 +35,4 @@ config/database.yml
 config/config.yml
 config/redis.yml
 config/master.key
+test.rb

@@ -81,6 +81,7 @@ set :unicorn_config_path, -> { File.join(release_path, 'config', 'unicorn.rb') }
 set :unicorn_roles, %i[db app web]
 # 这个参数必须要配置，要不然会默认执行development环境的。
 set :unicorn_rack_env, -> { fetch(:stage) }
+set :unicorn_bundle_gemfile, -> { release_path.join('Gemfile') }
 
 # 配置sidekiq,这里不需要去设置sidekiq的启动或者重启，在capistrano_sidekiq中已经自动执行了。
 set :sidekiq_config, "#{release_path}/config/sidekiq.yml"
