@@ -28,6 +28,9 @@
 #      rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
 
 Rails.application.routes.draw do
+  get 'static_pages/home'
+  get 'static_pages/help'
+  get 'static_pages/about'
   # sidekiq的路由相关
   require 'sidekiq/web'
   if Rails.env.production?
