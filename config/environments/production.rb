@@ -33,6 +33,12 @@ Rails.application.configure do
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 
+  # 是否压缩编译后的静态资源文件
+  config.assets.compress = true
+
+  # 在静态资源文件名中加入 MD5 指纹。
+  config.assets.digest = true
+
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
@@ -95,6 +101,9 @@ Rails.application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # 设置一个全局字符串，作为数据表名的前缀。
+  config.active_record.table_name_prefix = rgt_
 
   # Use a different logger for distributed setups.
   # require 'syslog/logger'

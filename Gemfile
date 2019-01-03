@@ -7,7 +7,7 @@ ruby '2.5.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
-# 这里使用mysql2数据库
+# mysql2数据库驱动
 gem 'mysql2'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
@@ -24,22 +24,27 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+
+# 异步队列。
 gem 'sidekiq'
+
+# http服务器
 gem 'unicorn'
+
+# 写入Linux中的crontab定时任务的一个ruby的DSL
 gem 'whenever', require: false
+
+# Ruby国际化和本地化的解决方案
+gem 'i18n'
 
 # redis相关的。 hiredis是一个高性能的redis，redis-rails和redis-rack-cache是提供了完整的一套如(cache,session,http cache)等存储功能的包。
 # redis-namespace这个是可以让redis在配置文件中设置命名空间的gem包
@@ -54,6 +59,10 @@ gem 'seed-fu'
 
 # 能创造简单并且比较高级的搜索条件。
 gem 'ransack', '~> 1.8.2'
+
+# 一个更高性能的html
+gem 'hamlit'
+gem 'haml'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -74,7 +83,7 @@ group :development do
 
   # capistrano相关的gem
   gem 'capistrano', '~> 3.11', require: false
-  gem 'capistrano-bundler', '~> 1.3', require: false
+  gem 'capistrano-bundler', '~> 1.5', require: false
   gem 'capistrano-rails', '~> 1.4', require: false
   gem 'capistrano-rvm', require: false
   gem 'capistrano-sidekiq'

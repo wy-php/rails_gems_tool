@@ -17,5 +17,10 @@ module RailsGemsTool
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    # 默认本地化语言是 :en 默认搜寻本地化文件的路径是：config/locales/*.{yml,rb}`，可以自定义其路径。
+    # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+    config.i18n.default_locale = :cn
+
   end
 end

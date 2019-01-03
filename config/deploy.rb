@@ -15,7 +15,7 @@ append :linked_files, 'config/database.yml', 'config/config.yml', 'config/redis.
 
 # 项目仓库配置
 @project_name = 'rails_gems_tool'
-@git_url = 'git@github.com:wy-php'
+@git_url = 'git@github.com:wy-ruby'
 @repo_url = "#{@git_url}/#{@project_name}.git"
 
 # 服务器上部署的路径配置
@@ -30,7 +30,7 @@ append :linked_files, 'config/database.yml', 'config/config.yml', 'config/redis.
 # 进行参数设置
 set :deploy_to, @complete_app_dir  # 部署的服务器的路径。默认是 { "/var/www/#{fetch(:application)}" }
 set :application, @app_dir         # 部署到的服务器的项目名
-# set :scm, :git                   #配置源码管理工具,在Capfile中引入即可，这里不建议引入否则会提醒。目前支持 :git 、:hg 、 :svn，默认是：git
+# set :scm, :git                   # 配置源码管理工具,在Capfile中引入即可，这里不建议引入否则会提醒。目前支持 :git 、:hg 、 :svn，默认是：git
 set :repo_url, @repo_url           # 部署的仓库的地址配置
 set :branch, @branch               # 仓库的分支，默认是master
 set :pty, false                    # 是否使用SSHKit 详见 https://github.com/capistrano/sshkit/
@@ -55,6 +55,9 @@ set :conditionally_migrate, true
 
 # 配置assets的目录，压缩编译静态文件在该配置下的目录进行。
 set :assets_manifests, ['app/assets/config/manifest.js']
+
+# 配置assets:precompile task中的RAILS_GROUPS的环境变量的值。
+# set :rails_assets_groups, :assets
 
 # 虽然迁移一般是针对数据库的，但是在rails中数据库的迁移和rails框架密切相关，因此这里设置为应用 :app，而不是 :db
 set :migration_role, :app
@@ -89,13 +92,15 @@ set :sidekiq_roles, %i[db app web]
 
 # 执行deploy中进行的操作
 # 在第一次部署的时候运行该命令,用来创建数据库。
-before 'deploy:updated', 'deploy:curd_database'
+# before 'deploy:updated', 'deploy:curd_database'
 # 使用unicorn去运行该命令，如果是首次运行或者服务器端的unicorn进程挂掉的情况的话使用unicorn:start，其他的情况使用unicorn:restart或者unicorn:legacy_restart
 after 'deploy:publishing', 'deploy:restart'
 # 执行db/fixtures/*下的任务
 before 'deploy:publishing', 'db:seed_fu'
 # 等发布完成之后把那些没有用到的gem给删除了,这个建议等删除的gem比较多的话再用。
 # after 'deploy:published', 'bundler:clean'
+
+# before 'deploy:starting', 'deploy:upload_linked_files'
 
 namespace :deploy do
   # 自定义了一个部署任务, 即自动运行 rake RAILS_ENV=rails_env db:create
@@ -107,7 +112,7 @@ namespace :deploy do
         with rails_env: fetch(:rails_env) do
           # execute :rake, 'db:create' #如果是第一次部署可以加上该行代码以便创建数据库。
           # 根据设置的：rails_evn的变量配置对应的RAILS_ENV环境，然后进行rake下的migrate操作
-          execute :rake, 'db:migrate'
+          execute :rake, 'db:create'
         end
       end
     end
@@ -117,4 +122,14 @@ namespace :deploy do
   task :restart do
     invoke 'unicorn:legacy_restart'
   end
+
+  # 给服务器上，上传必要的文件
+  task :upload_linked_files do
+    on roles(:app) do
+      upload! "#{shared_path}/config/", "/config/database.yml"
+      upload! "/config/master.key", "#{shared_path}/config/master.key"
+      upload! "/config/redis.yml", "#{shared_path}/config/redis.yml"
+    end
+  end
+
 end

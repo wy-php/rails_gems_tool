@@ -1,0 +1,58 @@
+﻿﻿!!!5
+%html{lang: 'en'}
+  %head
+    %title Haml Demo!
+  %body
+    / 我是单行注释会显示在html页面的
+    /
+      %p 我是多行注释，是会显示在html页面中的。
+      %div
+      %h1 Because it's commented out!
+    -# 我是单行注解，不会显示在html中的
+    -#
+       我是多行注解，不会显示在
+       html中的。
+
+    / 用"="执行ruby代码并返回结果显示在document中。"!="不过滤影响html安全的内容。
+    %p<
+      = ['hi', 'there', 'reader!'].join " "
+      = "yo"
+
+    / 使用"-"运行ruby代码，但是不会向document中写入任何内容。
+    - foo = "hello"
+    - foo << " there"
+    - foo << " you!"
+    %p= foo
+    / ruby 块不是被有封闭的标签关起来，而是使用缩进来控制
+    - (42...47).each do |i|
+      %p= i
+    / 使用ruby中的case...when语法
+    %p<
+      - case 2
+      - when 1
+        = "1!"
+      - when 2
+        = "2?"
+      - when 3
+        = "3."
+
+    / 正常使用#{}语法
+    - quality = "high quality"
+    %p = "This is #{quality} cake!"
+
+    / 对内容进行转义，使其不成为变量。 "<"只的是代表去除里面的空格(不去除的话内容和标签会换行显示)，">"则代       表去除外面的空格。
+    %title<
+      - @title = "我的值是"
+      = @title
+      \= @title
+
+    / 代表插入标签的内容。
+    %h1 Hello World!
+
+    / 以下的三种写法是一样的结果，都是代表的a标签中的各种属性的。
+    %a(href = "http://www.baidu.com" title = "百度") 百度一下，你就知道！
+    %a{:title =>  "百度", :href => "http://www.baidu.com"} Stuff
+    %a(title="百度"){:href => "http://www.baidu.com"} Stuff
+    %nav.navbar.navbar-pf-vertical#notification-app{"ng-controller" => "hehe as vm"}
+    %label{:for => "test"}
+      %h2 Hello
