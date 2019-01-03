@@ -103,7 +103,7 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # 设置一个全局字符串，作为数据表名的前缀。
-  config.active_record.table_name_prefix = rgt_
+  # config.active_record.table_name_prefix = rgt_
 
   # Use a different logger for distributed setups.
   # require 'syslog/logger'

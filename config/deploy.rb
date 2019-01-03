@@ -70,7 +70,7 @@ set :assets_roles, %i[web app]
 
 # bundle相关。本身deploy.rake有做在updating的时候设置set_release_path的，然后就可以设置对应的release_path了，但是不知道为什么没有设置
 # 所以这里需要在第一次发布的时候设置下，之后必须要删除了，并设置set :bundle_gemfile, -> { current_path.join('Gemfile') }即可
-# set_release_path
+set_release_path
 set :bundle_gemfile, -> { release_path.join('Gemfile') }
 
 # capistrano3版本及以上引入whenever的时候带上该命令是可以执行whenever -i的，即更新crontab的配置。
